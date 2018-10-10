@@ -2,12 +2,12 @@
 
 .help-block {
   color: red;
-  text-transformation: capitalize;
+  text-transform: capitalize;
   position: absolute;
-  top: 35px;
+  top: 37px;
 }
 
 .form-group {
   position: relative;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }

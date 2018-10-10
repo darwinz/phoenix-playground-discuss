@@ -9,8 +9,13 @@
 
     <title>Hello Discuss!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+      <%= if @conn.assigns.user do %>
+        window.userToken = "<%= Phoenix.Token.sign(Discuss.Endpoint, "key", @conn.assigns.user.id) %>"
+      <% end %>
+    </script>
   </head>
 
   <body>
@@ -26,7 +31,7 @@
             </li>
           <% else %>
             <li>
-              <%= link "Sign in with GitHub", to: auth_path(@conn, :request, "github") %>
+              <%= link "Sign in with Github", to: auth_path(@conn, :request, "github") %>
             </li>
           <% end %>
         </ul>
